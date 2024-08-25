@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body id="registration-page">
+
+    <div class="form-container" id="registrationForm">
+        <form>
+            <h2>User Registration</h2>
+
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+            <label for="country">Country:</label>
+            <select id="country" name="country" required></select>
+
+            <label for="state">State:</label>
+            <select id="state" name="state" required></select>
+
+            <label for="phone">Phone Number:</label>
+    <div id="phoneContainer">
+        <span id="phoneExtension"></span> <!-- Default extension -->
+        <input type="text" id="phone" placeholder="Enter 10-digit number" maxlength="10" />
+    </div>
+
+            <label>Choose Domain Type:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="department" value="AD">AD</label>
+        <label><input type="radio" name="department" value="CSE">CSE</label>
+        <label><input type="radio" name="department" value="AIML">AIML</label>
+        <label><input type="radio" name="department" value="ECE">ECE</label>
+        <label><input type="radio" name="department" value="EEE">EEE</label>
+        <label><input type="radio" name="department" value="Mech">Mechanical</label>
+        <label><input type="radio" name="department" value="ME">Mechatronics</label>
+        <label><input type="radio" name="department" value="IT">IT</label>
+        <label><input type="radio" name="department" value="CSBS">CSBS</label>
+        <label><input type="radio" name="department" value="Chemical">Chemical</label>
+        <label><input type="radio" name="department" value="BME">BME</label>
+        <label><input type="radio" name="department" value="Civil">Civil</label>
+            </div>
+<br>
+            <label for="dateOfBirth">Date of Birth:</label>
+            <input type="date" id="dateOfBirth" name="dateOfBirth" required max="">
+
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea>
+
+            <div class="custom-file-input">
+            <label for="upload">Upload File:</label>
+            <input type="file" id="upload" name="upload" accept="image/*,video/*,.pdf" required>
+
+            </div>
+            <br>
+            <br>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        
+    </div>
+
+    <script src="scripts.js"></script>
+    
+</body>
+</html>

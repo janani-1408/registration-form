@@ -1,0 +1,366 @@
+/* General Styles */
+#registration-page {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg');
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: url('https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg');
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full viewport width */
+    display: flex;
+    flex-direction: column;
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    animation: slideIn 1.5s ease-out;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(120, 230, 255, 0.5);
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section h1 {
+    font-size: 3.5em;
+    margin: 0;
+    color: #ffffff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    animation: textGlow 1.5s ease-in-out infinite alternate;
+}
+
+.hero-section p {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #6771bf;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    animation: textFadeIn 2s ease-in-out;
+}
+
+.register-button {
+    background-color: #3333e4;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: buttonPopIn 1s ease-in-out;
+}
+
+.register-button:hover {
+    background-color: #4549c5;
+    transform: scale(1.05);
+}
+
+/* Form Container */
+.form-container {
+    width: 50%;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.form-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    padding: 10px 0;
+    color: #ffffff;
+    text-shadow: 3px 3px 6px rgb(0, 98, 255);
+}
+/* Phone Number Container */
+#phoneContainer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    animation: phoneNumberAnimation 1s ease-in-out;
+}
+
+/* Phone Extension Input */
+#phoneExtension {
+    width: 40px; /* Fixed width */
+    height: 19px;
+    margin-top: -15px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fffefe;
+    font-size: 16px;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="tel"],
+textarea,
+select {
+    width: calc(100% - 22px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    animation: inputFocus 0.5s ease-in-out;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #3f51b5;
+    box-shadow: 0 0 5px rgba(63, 81, 181, 0.5);
+    outline: none;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="date"]::placeholder,
+input[type="tel"]::placeholder,
+textarea::placeholder {
+    color: #999;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.phone-number {
+    display: flex;
+    gap: 10px;
+    animation: phoneNumberAnimation 1s ease-in-out;
+}
+
+.phone-number input[type="text"] {
+    flex: 0 1 100px;
+    background-color: #f0f0f0;
+}
+
+.phone-number input[type="tel"] {
+    flex: 1;
+    background-color: #fafafa;
+}
+
+button {
+    background-color: #3f51b5;
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: buttonSlideIn 1s ease-out;
+}
+
+button:hover {
+    background-color: #303f9f;
+    transform: scale(1.05);
+}
+
+/* Radio Group */
+.radio-group {
+    animation: radioGroupFadeIn 1s ease-in-out;
+}
+
+#radio-group input[type="radio"] {
+    margin-right: 10px; /* Space between radio button and department name */
+}
+
+#radio-group label {
+    display: block; /* Stack each label vertically */
+    margin-bottom: 50px; /* Adds space between the radio buttons */
+}
+
+/* Additional Styles */
+input[type="file"] {
+    padding: 0;
+}
+
+input[type="file"]::before {
+    content: 'Upload File';
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #3f51b5;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    display: none;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    }
+    to {
+        text-shadow: 3px 3px 20px rgba(255, 105, 180, 0.8);
+    }
+}
+
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes buttonPopIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(45deg, #ff6f61, #debb2e);
+    }
+    50% {
+        background: linear-gradient(45deg, #debb2e, #ff6f61);
+    }
+    100% {
+        background: linear-gradient(45deg, #ff6f61, #debb2e);
+    }
+}
+
+@keyframes inputFocus {
+    0% {
+        border-color: #ddd;
+    }
+    100% {
+        border-color: #3f51b5;
+    }
+}
+
+@keyframes phoneNumberAnimation {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes buttonSlideIn {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes radioGroupFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You!</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #thank {
+            height: 100vh; /* Full viewport height */
+            width: 100%;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg');
+            display: flex;
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            text-align: center;
+            align-items: center;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.5s ease-in-out;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #007bff;
+            background: linear-gradient(135deg, #eaecef, #00d4ff);
+        
+            animation: gradientMove 3s ease-in-out infinite;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        button {
+            padding: 15px 30px;
+            margin: 15px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #00d4ff, #007bff);
+            color: white;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #007bff, #00d4ff);
+            transform: scale(1.05);
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+    </style>
+</head>
+<body id="thank">
+    <div class="container">
+        <h1>Thank You!</h1>
+        <p>Your submission has been received successfully.</p>
+
+        <!-- Buttons for further actions -->
+        <button onclick="submitAnother()">Submit Another Response</button>
+        <button onclick="exit()">Exit</button>
+    </div>
+
+    <script>
+        // Redirect to the registration form
+        function submitAnother() {
+            window.location.href = 'register.html';  
+        }
+
+        // Redirect to the main page
+        function exit() {
+            window.location.href = 'index.html';  // Redirect to the main page
+        }
+    </script>
+</body>
+</html>
