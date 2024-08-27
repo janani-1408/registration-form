@@ -228,6 +228,22 @@ button:hover {
     margin-bottom: 50px; /* Adds space between the radio buttons */
 }
 
+.check-box {
+    animation: radioGroupFadeIn 1s ease-in-out;
+}
+
+#check-box input[type="radio"] {
+    margin-right: 10px; /* Space between radio button and department name */
+}
+
+#check-box label {
+    display: block; /* Stack each label vertically */
+    margin-bottom: 50px; /* Adds space between the radio buttons */
+}
+
+
+
+
 /* Additional Styles */
 input[type="file"] {
     padding: 0;
