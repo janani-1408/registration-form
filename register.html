@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration</title>
+    <title>Registration Form</title>
     <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -11,7 +11,7 @@
 
     <div class="form-container" id="registrationForm">
         <form>
-            <h2>User Registration</h2>
+            <h2>Registration Form</h2>
 
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" required>
@@ -56,14 +56,30 @@
         <label><input type="radio" name="department" value="Civil">Civil</label>
             </div>
 <br>
+<label>Types of Events:</label>
+<div class="check-box">
+            <form action="#" method="post">
+                <label><input type="checkbox" name="events" value="Conferences"> Conferences</label>
+                <label><input type="checkbox" name="events" value="Seminars"> Seminars</label>
+                <label><input type="checkbox" name="events" value="Workshops"> Workshops</label>
+                <label><input type="checkbox" name="events" value="Webinars"> Webinars</label>
+                <label><input type="checkbox" name="events" value="Networking Events"> Networking Events</label>
+                <label><input type="checkbox" name="events" value="Cultural Festivals"> Cultural Festivals</label>
+                <label><input type="checkbox" name="events" value="Award Ceremonies"> Award Ceremonies</label>
+                <label><input type="checkbox" name="events" value="Social Events"> Social Events</label>
+                <label><input type="checkbox" name="events" value="Sports"> Sports</label>
+                <label><input type="checkbox" name="events" value="Exhibitions"> Exhibitions</label>
+                <label><input type="checkbox" name="events" value="Educational Events"> Educational Events</label>
+                <label><input type="checkbox" name="events" value="Hackathons"> Hackathons</label>
+                <label><input type="checkbox" name="events" value="Community Events"> Community Events</label>
+                <label><input type="checkbox" name="events" value="Group Discussion"> Group Discussion</label>
+            </div>
+                <br>
             <label for="dateOfBirth">Date of Birth:</label>
             <input type="date" id="dateOfBirth" name="dateOfBirth" required max="">
 
-            <label for="feedback">Feedback:</label>
-            <textarea id="feedback" name="feedback" rows="4" required></textarea>
-
             <div class="custom-file-input">
-            <label for="upload">Upload File:</label>
+            <label for="upload">Upload The Payment Receipt/Screenshot:</label>
             <input type="file" id="upload" name="upload" accept="image/*,video/*,.pdf" required>
 
             </div>
