@@ -3,94 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body id="registration-page">
-
-    <div class="form-container" id="registrationForm">
-        <form>
+    <div id="formContainer" class="form-container">
+        <!-- Page 1 -->
+        <form id="page1Form" class="form-page" data-page="1">
             <h2>Registration Form</h2>
-
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" required>
-
+            
             <label for="lastName">Last Name:</label>
             <input type="text" id="lastName" name="lastName" required>
-
+            
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-
+            
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-
+            
             <label for="confirmPassword">Confirm Password:</label>
             <input type="password" id="confirmPassword" name="confirmPassword" required>
-
+            
             <label for="country">Country:</label>
             <select id="country" name="country" required></select>
-
+            
             <label for="state">State:</label>
             <select id="state" name="state" required></select>
-
+            
             <label for="phone">Phone Number:</label>
     <div id="phoneContainer">
         <span id="phoneExtension"></span> <!-- Default extension -->
         <input type="text" id="phone" placeholder="Enter 10-digit number" maxlength="10" />
     </div>
+            
+    <label>Choose Domain Type:</label>
+    <div class="radio-group">
+        <label><input type="radio" name="department" value="AD">AD</label>
+<label><input type="radio" name="department" value="CSE">CSE</label>
+<label><input type="radio" name="department" value="AIML">AIML</label>
+<label><input type="radio" name="department" value="ECE">ECE</label>
+<label><input type="radio" name="department" value="EEE">EEE</label>
+<label><input type="radio" name="department" value="Mech">Mechanical</label>
+<label><input type="radio" name="department" value="ME">Mechatronics</label>
+<label><input type="radio" name="department" value="IT">IT</label>
+<label><input type="radio" name="department" value="CSBS">CSBS</label>
+<label><input type="radio" name="department" value="Chemical">Chemical</label>
+<label><input type="radio" name="department" value="BME">BME</label>
+<label><input type="radio" name="department" value="Civil">Civil</label>
+    </div>
+         <br>   
+    <label>Gender:</label>
+    <div class="radio-group">
+                <label><input type="radio" name="gender" value="male" required> Male</label>
+                <label><input type="radio" name="gender" value="female" required> Female</label>
+                <label><input type="radio" name="gender" value="other" required> Other</label>
+            </div>
+            <br>
 
-            <label>Choose Domain Type:</label>
-            <div class="radio-group">
-                <label><input type="radio" name="department" value="AD">AD</label>
-        <label><input type="radio" name="department" value="CSE">CSE</label>
-        <label><input type="radio" name="department" value="AIML">AIML</label>
-        <label><input type="radio" name="department" value="ECE">ECE</label>
-        <label><input type="radio" name="department" value="EEE">EEE</label>
-        <label><input type="radio" name="department" value="Mech">Mechanical</label>
-        <label><input type="radio" name="department" value="ME">Mechatronics</label>
-        <label><input type="radio" name="department" value="IT">IT</label>
-        <label><input type="radio" name="department" value="CSBS">CSBS</label>
-        <label><input type="radio" name="department" value="Chemical">Chemical</label>
-        <label><input type="radio" name="department" value="BME">BME</label>
-        <label><input type="radio" name="department" value="Civil">Civil</label>
-            </div>
-<br>
-<label>Types of Events:</label>
-<div class="check-box">
-            <form action="#" method="post">
-                <label><input type="checkbox" name="events" value="Conferences"> Conferences</label>
-                <label><input type="checkbox" name="events" value="Seminars"> Seminars</label>
-                <label><input type="checkbox" name="events" value="Workshops"> Workshops</label>
-                <label><input type="checkbox" name="events" value="Webinars"> Webinars</label>
-                <label><input type="checkbox" name="events" value="Networking Events"> Networking Events</label>
-                <label><input type="checkbox" name="events" value="Cultural Festivals"> Cultural Festivals</label>
-                <label><input type="checkbox" name="events" value="Award Ceremonies"> Award Ceremonies</label>
-                <label><input type="checkbox" name="events" value="Social Events"> Social Events</label>
-                <label><input type="checkbox" name="events" value="Sports"> Sports</label>
-                <label><input type="checkbox" name="events" value="Exhibitions"> Exhibitions</label>
-                <label><input type="checkbox" name="events" value="Educational Events"> Educational Events</label>
-                <label><input type="checkbox" name="events" value="Hackathons"> Hackathons</label>
-                <label><input type="checkbox" name="events" value="Community Events"> Community Events</label>
-                <label><input type="checkbox" name="events" value="Group Discussion"> Group Discussion</label>
-            </div>
-                <br>
             <label for="dateOfBirth">Date of Birth:</label>
             <input type="date" id="dateOfBirth" name="dateOfBirth" required max="">
-
-            <div class="custom-file-input">
-            <label for="upload">Upload The Payment Receipt/Screenshot:</label>
-            <input type="file" id="upload" name="upload" accept="image/*,video/*,.pdf" required>
-
-            </div>
-            <br>
-            <br>
-            <button type="submit" class="submit-btn">Submit</button>
+            
+            <button type="button" id="nextButton">Next</button>
         </form>
-        
+
+        <!-- Page 2 -->
+        <form id="page2Form" class="form-page" data-page="2">
+            <h2>College Details</h2>
+            <label for="collegeName">College Name:</label>
+            <input type="text" id="collegeName" name="collegeName" required>
+            
+            <label>Types of Events:</label>
+            <div class="check-box">
+                        <form action="#" method="post">
+                            <label><input type="checkbox" name="events" value="Conferences"> Conferences</label>
+                            <label><input type="checkbox" name="events" value="Seminars"> Seminars</label>
+                            <label><input type="checkbox" name="events" value="Workshops"> Workshops</label>
+                            <label><input type="checkbox" name="events" value="Webinars"> Webinars</label>
+                            <label><input type="checkbox" name="events" value="Networking Events"> Networking Events</label>
+                            <label><input type="checkbox" name="events" value="Cultural Festivals"> Cultural Festivals</label>
+                            <label><input type="checkbox" name="events" value="Award Ceremonies"> Award Ceremonies</label>
+                            <label><input type="checkbox" name="events" value="Social Events"> Social Events</label>
+                            <label><input type="checkbox" name="events" value="Sports"> Sports</label>
+                            <label><input type="checkbox" name="events" value="Exhibitions"> Exhibitions</label>
+                            <label><input type="checkbox" name="events" value="Educational Events"> Educational Events</label>
+                            <label><input type="checkbox" name="events" value="Hackathons"> Hackathons</label>
+                            <label><input type="checkbox" name="events" value="Community Events"> Community Events</label>
+                            <label><input type="checkbox" name="events" value="Group Discussion"> Group Discussion</label>
+                        </div>
+            
+            <label for="topics">Topics:</label>
+            <input type="text" id="topics" name="topics" required>
+            
+            <label for="teamName">Team Name:</label>
+            <input type="text" id="teamName" name="teamName" required>
+            
+            <label for="paymentOption">Payment Option:</label>
+            <select id="paymentOption" name="paymentOption" required>
+                <option value="">Select payment method</option>
+                <option value="creditCard">Credit Card</option>
+                <option value="paypal">PayPal\Phonepay\Googlepay</option>
+              
+            </select>
+            
+            <div id="qrCodeContainer">
+                <label for="scan">Scan this QR code to make the payment:</label>
+                <img src="C:\Users\janan\OneDrive\Desktop\App development\formeee\scan.png.webp" alt="QR Code" class="qr-code">
+            </div>
+            
+            <div class="custom-file-input">
+                <label for="upload">Upload The Payment Receipt/Screenshot:</label>
+                <input type="file" id="upload" name="upload" accept="image/*,video/*,.pdf" required>
+            </div><br>
+            
+
+            <button type="submit" class="submit-btn">Submit</button>
+
+        </form>
     </div>
 
     <script src="scripts.js"></script>
-    
 </body>
 </html>
