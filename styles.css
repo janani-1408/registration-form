@@ -214,31 +214,205 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Radio Group */
-.radio-group {
-    animation: radioGroupFadeIn 1s ease-in-out;
+/* Advanced Custom Radio Button */
+.custom-radio input {
+    display: none;
 }
 
-#radio-group input[type="radio"] {
-    margin-right: 10px; /* Space between radio button and department name */
+.custom-radio label {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 25px;
+    color: #555;
+    transition: color 0.3s ease;
 }
 
-#radio-group label {
-    display: block; /* Stack each label vertically */
-    margin-bottom: 50px; /* Adds space between the radio buttons */
+.custom-radio label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #ddd;
+    border: 2px solid #007bff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.check-box {
-    animation: radioGroupFadeIn 1s ease-in-out;
+.custom-radio input:checked + label:before {
+    background-color: #007bff;
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
-#check-box input[type="radio"] {
-    margin-right: 10px; /* Space between radio button and department name */
+.custom-radio label:after {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-#check-box label {
-    display: block; /* Stack each label vertically */
-    margin-bottom: 50px; /* Adds space between the radio buttons */
+.custom-radio input:checked + label:after {
+    opacity: 1;
+}
+
+/* Hover and focus effects for the radio button */
+.custom-radio input + label:hover:before,
+.custom-radio input:focus + label:before {
+    border-color: #00d4ff;
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+    color: #007bff; /* Change text color on hover/focus */
+}
+
+.custom-radio input:focus + label:before {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+/* Advanced Custom Radio Button */
+.custom-radio input {
+    display: none;
+}
+
+input
+{
+accent-color:rgb(23, 42, 188);
+mix-blend-mode: multiply;
+}
+
+.qr-code{
+    max-width: 100px; /* Adjust the size as per your design */
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+.custom-radio label {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 25px;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.custom-radio label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #ddd;
+    border: 2px solid #007bff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-radio input:checked + label:before {
+    background-color: #007bff;
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.custom-radio label:after {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.custom-radio input:checked + label:after {
+    opacity: 1;
+}
+
+/* Hover and focus effects for the radio button */
+.custom-radio input + label:hover:before,
+.custom-radio input:focus + label:before {
+    border-color: #00d4ff;
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+    color: #007bff; /* Change text color on hover/focus */
+}
+
+.custom-radio input:focus + label:before {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+
+
+/* Custom Checkbox */
+.custom-checkbox input {
+    display: none;
+}
+
+.custom-checkbox label {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+}
+
+.custom-checkbox label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    background-color: #ddd;
+    border: 2px solid #007bff;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-checkbox input:checked + label:before {
+    background-color: #007bff;
+}
+
+.custom-checkbox label:after {
+    content: '\2713'; /* Unicode checkmark */
+    position: absolute;
+    left: 5px;
+    top: 0;
+    font-size: 2rem;
+    line-height: 25px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.custom-checkbox input:checked + label:after {
+    opacity: 1;
+}
+
+/* Hover and focus effects for the checkbox */
+.custom-checkbox input + label:hover:before,
+.custom-checkbox input:focus + label:before {
+    border-color: #00d4ff;
 }
 
 
