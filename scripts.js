@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const phoneExtension = document.getElementById('phoneExtension');
     const maxDate = new Date().toISOString().split("T")[0];
     document.getElementById('dateOfBirth').setAttribute('max', maxDate);
+    const formPages = document.querySelectorAll('.form-page');
+    const nextButton = document.getElementById('nextButton');
+    const submitButton = document.querySelector('.submit-btn');
+    let currentPage = 0;
+    
 
     // Populate country dropdown
     const countries = {
@@ -27,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
         "Netherlands": "+31",
         "New Zealand": "+64",
         "Norway": "+47",
-        "Russia": "+7",
         "Saudi Arabia": "+966",
         "Singapore": "+65",
         "South Africa": "+27",
@@ -113,9 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
             addStateOptions(['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']);
         }
         
-        
-        
-        
         // Add similar conditions for other countries as needed.
     });
 
@@ -127,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to add state options
     function addStateOptions(states) {
-        clearStateOptions();
+        stateSelect.innerHTML = '';
         states.forEach(state => {
             const option = document.createElement('option');
             option.value = state;
@@ -136,66 +137,123 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Form validation
-    form.addEventListener('submit', function (event) {
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-        const email = document.getElementById('email').value;
+
+    function showPage(pageIndex) {
+        formPages.forEach((page, index) => {
+            page.style.display = index === pageIndex ? 'block' : 'none';
+        });
+    }
+
+    function validatePage1() {
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirmPassword').value;
-        const dob = document.getElementById('dateOfBirth').value;
-        const phoneNumber = phoneInput.value;
-    
-        // Validate name fields
-        const nameRegex = /^[A-Za-z]+$/;
-        if (!nameRegex.test(firstName) ||  !nameRegex.test(lastName)) {
-            alert('Name fields must contain only alphabets.');
-            event.preventDefault();
-            return;
+        const country = document.getElementById('country').value;
+        const state = document.getElementById('state').value;
+        const phone = document.getElementById('phone').value.trim();
+        const department = document.querySelector('input[name="department"]:checked');
+        const gender = document.querySelector('input[name="gender"]:checked');
+        const dateOfBirth = document.getElementById('dateOfBirth').value;
+
+        if (!firstName || !lastName || !email || !password || !confirmPassword || !country || !state || !phone || !department || !gender || !dateOfBirth) {
+            alert('Please fill in all required fields on Page 1.');
+            return false;
         }
     
-        // Validate email
-        const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
-        if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address (e.g., abc@gmail.com).');
-            event.preventDefault();
-            return;
-        }
+            // Validate name fields
+            const nameRegex = /^[A-Za-z]+$/;
+            if (!nameRegex.test(firstName) || !nameRegex.test(lastName)) {
+                alert('Name fields must contain only alphabets.');
+                return false;
+            }
     
-        // Validate password
-        const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        if (!passwordRegex.test(password)) {
-            alert('Password must be at least 8 characters long, including one uppercase letter, one number, and one special character.');
-            event.preventDefault();
-            return;
-        }
+            // Validate email
+            const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address (e.g., abc@gmail.com).');
+                return false;
+            }
     
-        if (password !== confirmPassword) {
-            alert('Passwords do not match.');
-            event.preventDefault();
-            return;
-        }
+            // Validate password
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(password)) {
+                alert('Password must be at least 8 characters long, including one uppercase letter, one number, and one special character.');
+                return false;
+            }
     
-        // Validate date
-        const currentDate = new Date().toISOString().split('T')[0];
-        if (dob > currentDate) {
-            alert('Date of Birth cannot be in the future.');
-            event.preventDefault();
-            return;
-        }
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return false;
+            }
     
-        // Validate phone number
-        const phoneRegex = /^\d{10}$/;
-        if (!phoneRegex.test(phoneNumber)) {
-            alert('Phone number must be 10 digits long.');
-            event.preventDefault();
-            return;
+            // Validate date
+            const currentDate = new Date().toISOString().split('T')[0];
+            if (dateOfBirth > currentDate) {
+                alert('Date of Birth cannot be in the future.');
+                return false;
+            }
+    
+            // Validate phone number
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phone)) {
+                alert('Phone number must be 10 digits long.');
+                return false;
+            }
+    
+            return true;
+
+        } 
+
+        function validatePage2() {
+        const collegeName = document.getElementById('collegeName')?.value.trim();
+        const events = document.querySelector('input[name="events"]:checked');
+        const topics = document.getElementById('topics')?.value.trim();
+        const teamName = document.getElementById('teamName')?.value.trim();
+        const paymentOption = document.querySelector('input[name="paymentOption"]:checked');
+        const receipt = document.getElementById('receipt')?.files.length;
+
+            if (!collegeName || !topics || !teamName ) {
+                alert('Please fill in all required fields on Page 2.');
+                return false;
+            }
+
+            // Validate college details
+            if (!collegeName) {
+                alert('College name is required.');
+                return false;
+            }
+    
+            if (!topics) {
+                alert('Topics field cannot be empty.');
+                return false;
+            }
+    
+            if (!teamName) {
+                alert('Team name is required.');
+                return false;
+            }
+
+    
+           return true;
         }
 
-        // If all validations pass, show the successful message and redirect
+        showPage(currentPage);
+
+        nextButton.addEventListener('click', function () {
+            if (validatePage1()) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        });
+    
+        submitButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    if (validatePage2()) {
         alert('Form submitted successfully!');
-        window.location.href = 'thankyou.html'; // Update path as needed
-        event.preventDefault(); // Prevent default form submission
+        window.location.href = 'thankyou.html';
+    }
+});
     });
     
-});
